@@ -53,6 +53,10 @@
     playerView.currentFrame=self.frame;
     
     //必须先设置tempSuperView在设置videoURL
+    UITableView *tableview=self.superview;
+    if (![tableview isKindOfClass:[UITableView class]]) {
+        tableview=tableview.superview;
+    }
     playerView.tempSuperView=self.superview.superview;
     playerView.videoURL=self.model.mp4_url;
     
